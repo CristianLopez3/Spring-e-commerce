@@ -1,13 +1,17 @@
 package com.curso.ecommerce.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import com.curso.ecommerce.model.Orden;
+import com.curso.ecommerce.service.IOrdenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +27,11 @@ public class UsuarioController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
-	
+
 	// /usuario/registro
+
+	@Autowired
+	private IOrdenService ordenService;
 	@GetMapping("/registro")
 	public String create() {
 		return "usuario/registro";
@@ -54,14 +61,23 @@ public class UsuarioController {
 			session.setAttribute("idusuario", user.get().getId());
 			if (user.get().getTipo().equals("ADMIN")) {
 				return "redirect:/administrador";
-			}else {
+			}else if(user.get().getTipo().equals("USER")) {
 				return "redirect:/";
 			}
 		}else {
 			logger.info("Usuario no existe");
 		}
 		
-		return "redirect:/";
+		return "redirect:/usuario/login";
+	}
+
+	@GetMapping("/compras")
+	public String obtenerCompras(Model model , HttpSession sesion){
+		model.addAttribute("sesion", sesion.getAttribute("idusuario"));
+		Usuario usuario = usuarioService.findById(Integer.parseInt(sesion.getAttribute("idusuario").toString())).get();
+		List<Orden> ordenes = ordenService.findByUsuario(usuario);
+		model.addAttribute("ordenes", ordenes);
+		return "/usuario/compras";
 	}
 	
 

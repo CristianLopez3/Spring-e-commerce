@@ -11,20 +11,17 @@
 
 <title>Spring eCommerce</title>
 
-
-<!-- Bootstrap core CSS -->
-<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
-	rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+	<link th:href="@{vendor/bootstrap/css/bootstrap.min.css}"
+		  rel="stylesheet">
+	<link th:href="@{css/heroic-features.css}" rel="stylesheet">
 
 </head>
 
 <body>
 
 	<!-- Navigation -->
-	<div th:include="usuario/template_usuario.html::header"></div>
+	<div th:if="${sesion == null}" th:insert="~{usuario/template_usuario.html::header}"></div>
+	<div th:if="${sesion == null}" th:insert="~{usuario/template_usuario.html::header-user}"></div>
 
 	<!-- Page Content -->
 	<div class="container">
