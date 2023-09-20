@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.curso.ecommerce.model.DetalleOrden;
 import com.curso.ecommerce.repository.IDetalleOrdenRepository;
 
+import java.util.List;
+
 @Service
 public class DetalleOrdenServiceImpl implements IDetalleOrdenService{
 	
@@ -15,6 +17,11 @@ public class DetalleOrdenServiceImpl implements IDetalleOrdenService{
 	@Override
 	public DetalleOrden save(DetalleOrden detalleOrden) {
 		return detalleOrdenRepository.save(detalleOrden);
+	}
+
+	@Override
+	public List<DetalleOrden> findByOrden(Integer id) {
+		return findByOrden(id);
 	}
 
 }
