@@ -10,10 +10,15 @@ import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
@@ -23,6 +28,7 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
+
 
     @Bean
     public PasswordEncoder enconder(){
@@ -39,7 +45,6 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/usuario/login")
                 .permitAll().defaultSuccessUrl("/usuario/acceder");
-
     }
 
     @Override
