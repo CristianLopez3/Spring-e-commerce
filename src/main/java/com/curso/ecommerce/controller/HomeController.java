@@ -157,8 +157,7 @@ public class HomeController {
 	// guardar la orden
 	@GetMapping("/saveOrder")
 	public String saveOrder(HttpSession session ) {
-		Date fechaCreacion = new Date();
-		orden.setFechaCreacion(fechaCreacion);
+		orden.setFechaCreacion(new Date());
 		orden.setNumero(ordenService.generarNumeroOrden());
 		
 		//usuario

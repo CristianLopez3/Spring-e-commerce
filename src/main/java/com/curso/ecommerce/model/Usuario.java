@@ -1,5 +1,7 @@
 package com.curso.ecommerce.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
