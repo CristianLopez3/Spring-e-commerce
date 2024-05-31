@@ -17,7 +17,7 @@ In order to use the project you need to have the next technologies in your machi
 If you already have this **technologies** clone the repository:
 
 ````shell
-git clone https://github.com/CristianLopez3/Spring-e-commerce.git
+git clone https://github.com/CristianLopez3/spring-e-commerce.git
 cd Spring-e-commerce
 ````
 
