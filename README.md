@@ -1,7 +1,10 @@
-# Spring E-commerce With Thymeleaf :leaf:
+# Spring E-commerce With Thymeleaf 🍃
 
-Hi everyone, this is a **basic spring** e-commerce made with spring boot and thymeleaf,
+Hi everyone ✋ , this is a **basic spring** e-commerce 🛒 made with spring boot and thymeleaf,
 let's dive into the features...
+
+>[!NOTE]
+>This project was made when I was in a begginer level, so please don't be to hard with the code 😮‍💨
 
 ### Use the Project :book:
 
