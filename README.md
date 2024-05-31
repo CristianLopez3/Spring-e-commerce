@@ -18,7 +18,7 @@ If you already have this **technologies** clone the repository:
 
 ````shell
 git clone https://github.com/CristianLopez3/spring-e-commerce.git
-cd Spring-e-commerce
+cd spring-e-commerce
 ````
 
 Now open the project and wait to its building, next let it run and enjoy with it.
